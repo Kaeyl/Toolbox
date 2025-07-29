@@ -6,7 +6,6 @@ client = docker.from_env()
 viewExistingContainers = client.containers.list(all=True)
 
 def createContainer(inputUser, inputPassword, dbname, containerName, containerPort, client):
-    # client = docker.from_env()
     try:
         container = client.containers.run(
             "postgres:15",
@@ -17,7 +16,7 @@ def createContainer(inputUser, inputPassword, dbname, containerName, containerPo
                 "POSTGRES_DB": dbname
             },
             ports={"5432/tcp": int(containerPort)},
-            detach=True  # Runs the container in the background
+            detach=True 
         )
 
         print(f"Container {container.name} created and running.")
