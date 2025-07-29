@@ -22,7 +22,7 @@ def createContainer(inputUser, inputPassword, dbname, containerName, containerPo
 
         print(f"Container {container.name} created and running.")
     except docker.errors.APIError as e:
-        print(f"❌ Docker error: {e.explanation}")
+        print(f"Docker error: {e.explanation}")
         return
     
 if __name__ == '__main__':
